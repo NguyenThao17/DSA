@@ -12,6 +12,7 @@ void quickSort(int a[], int l, int r, int n)
     cout<<"Left="<<i<<" - Right="<<j<<" - Pivot="<<x<<endl;
     while(i<=j)
     {   
+        if (l >= r) return;
         while (a[i]<x)
         {
             i++;
@@ -39,7 +40,7 @@ void quickSort(int a[], int l, int r, int n)
 
 int main()
 {
-    int n, a[200];
+    int n, a[1000];
     cin>>n; 
     for(int i=0; i<n; i++) cin>>a[i];
     cout<<"Mang truoc khi sap xep:\n";
