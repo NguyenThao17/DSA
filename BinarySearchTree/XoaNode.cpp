@@ -1,4 +1,3 @@
-
 #include<iostream>
 using namespace std;
 
@@ -44,17 +43,18 @@ void inorder(TREE T)
         cout<<T->key<<" ";
         inorder(T->right);
     }
-    else cout<<endl;
 }
 void ThayThe(TREE &q,TREE &p)
 {
     if(q->left!=NULL)
     {
-        ThayThe(q,p);
+        ThayThe(q->left,p);
     }
-    p->key=q->key;
-    p=q;
-    q=q->right;
+    else{
+        p->key=q->key;
+        p=q;
+        q=q->right;
+    }
 }
 
 bool Delete(TREE &T, int x)
@@ -81,6 +81,8 @@ bool Delete(TREE &T, int x)
 }
 
 int main(){
+    ios::sync_with_stdio(false);
+    cin.tie(0);
     TREE T;
     CreatTREE(T);
     int n;
@@ -100,4 +102,5 @@ int main(){
         Delete(T, x);
     }
     inorder(T);
+    cout<<endl;
 }
